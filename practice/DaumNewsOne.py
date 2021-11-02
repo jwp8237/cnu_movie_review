@@ -7,7 +7,8 @@ from bs4 import BeautifulSoup
 
 # BeautifulSoup4 => requests GET 해온 코드에서 필요한 정보만 find 해서 찾아오기
 
-url = 'https://news.v.daum.net/v/20211021152915953'
+url = 'https://news.v.daum.net/v/202' \
+      '11021152915953'
 result = requests.get(url)
 
 doc = BeautifulSoup(result.text, 'html.parser')
