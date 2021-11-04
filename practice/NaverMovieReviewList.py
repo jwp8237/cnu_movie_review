@@ -17,12 +17,8 @@ for i, one in enumerate(review_list):
 #    review_text = one.select('#_filtered_ment_{}'.format(i))[0].get_text().strip()
 
     score = one.select('div.star_score > em')[0].get_text()
-    review = one.select('div.score_reple > p > span')
 
-    j = 0
-    if len(review) == 2:   # +관람객
-        j = 1
-    review_txt = review[j].get_text().strip()
+    review = one.select('div.score_reple > p > span')[-1].get_text().strip()
 
     original_writer = one.select('div.score_reple dt em')[0].get_text().strip()
 
@@ -34,7 +30,7 @@ for i, one in enumerate(review_list):
     idx_end = original_writer.find('(')
     writer = original_writer[0:idx_end]
 
+    print('::REVIEW -> {}'.format(review))
+    print('::WRITER -> {}'.format(writer))
     print(':: SCORE -> {}'.format(score))
-    print('::REVIEW -> {}'.format(review_txt))
-    print(writer)
-    print(date)
+    print(':: DATE -> {}'.format(date))
